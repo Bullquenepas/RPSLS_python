@@ -14,19 +14,19 @@ class Human(Player):
             print('You chose rock!')
             self.chosen_gesture = self.gesture[0]
         
-        if user_input == self.gesture[1]:
+        elif user_input == self.gesture[1]:
             print('You chose paper!')
             self.chosen_gesture = self.gesture[1]
 
-        if user_input == self.gesture[2]:
+        elif user_input == self.gesture[2]:
             print('You chose scissors')
             self.chosen_gesture = self.gesture[2]
 
-        if user_input == self.gesture[3]:
+        elif user_input == self.gesture[3]:
             print ('You chose lizard!')
             self.chosen_gesture = self.gesture[3]
 
-        if user_input == self.gesture[4]:
+        elif user_input == self.gesture[4]:
             print ('You chose spock!')
             self.chosen_gesture = self.gesture[4]
 

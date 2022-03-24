@@ -1,8 +1,10 @@
 #Display welcome message // display rules of game
 from human import Human
 from ai import Ai
+from player import Player
 
-class Game:
+
+class Game():
     def __init__(self):
         pass
 
@@ -26,14 +28,126 @@ class Game:
     #     print(self.gesture)
     # display_gesture = display_gesture_options()
 
+    def run_game(self):
+        self.welcome()
+        self.game_select()
+        self.player_one.choose_gesture()
+        self.player_two.choose_gesture()
+        self.compare_gestures()
+
     def compare_gestures(self):
         
-        if self.player_one == self.gesture[0]:
-            if self.player_two == self.gesture[0]:
+        if self.player_one.chosen_gesture == 'rock':
+            if self.player_two.chosen_gesture == 'rock':
                 print('It is a tie.')
             
-            elif self.player_two == self.gesture[1]:
+            elif self.player_two.chosen_gesture == 'paper':
                 self.player_two.player_score += 1
+                print(f'paper covers rock {self.player_two.name} wins')
+            
+            elif self.player_two.chosen_gesture == 'scissors':
+                self.player_one.player_score += 1
+                print(f'rock crushes scissors {self.player_one.name} wins')
+
+            elif self.player_two.chosen_gesture == 'lizard':
+                self.player_one.player_score += 1
+                print(f'rock crushes lizard {self.player_one.name} wins')
+            
+            elif self.player_two.chosen_gesture == 'spock':
+                self.player_two.player_score +=1
+                print(f'spock vaporizes rock {self.player_two.name} wins')
+         
+        if self.player_one.chosen_gesture == 'paper':
+            if self.player_two.chosen_gesture == 'rock':
+                self.player_one.player_score += 1
+                print(f'paper covers rock {self.player_one.name} wins')
+            
+            elif self.player_two.chosen_gesture == 'paper':
+                print('Its a tie') 
+
+            elif self.player_two.chosen_gesture == 'scissors':
+                self.player_two.player_score += 1
+                print(f'scissors cut paper {self.player_two.name} wins')
+
+            elif self.player_two.chosen_gesture == 'lizard':
+                self.player_two.player_score += 1
+                print(f'lizard eats paper {self.player_two.name} wins')
+            
+            elif self.player_two.chosen_gesture == 'spock':
+                self.player_one.player_score += 1
+                print(f'paper disproves spock {self.player_one.name} wins')
+        
+        # 3rd line
+        if self.player_one.chosen_gesture == 'scissors':
+            if self.player_two.chosen_gesture == 'rock':
+                self.player_two.player_score += 1
+                print(f'rock crushes scissors {self.player_two.name} wins')
+            
+            elif self.player_two.chosen_gesture == 'scissors':
+                print('Its a tie') 
+
+            elif self.player_two.chosen_gesture == 'paper':
+                self.player_one.player_score += 1
+                print(f'scissors cut paper {self.player_one.name} wins')
+
+            elif self.player_two.chosen_gesture == 'lizard':
+                self.player_one.player_score += 1
+                print(f'scissors decapitates lizard {self.player_one.name} wins')
+            
+            elif self.player_two.chosen_gesture == 'spock':
+                self.player_two.player_score += 1
+                print(f'spock smashes scissors {self.player_two.name} wins')
+        
+        # 4th line
+        if self.player_one.chosen_gesture == 'lizard':
+            if self.player_two.chosen_gesture == 'rock':
+                self.player_two.player_score += 1
+                print(f'rock crushes lizard {self.player_two.name} wins')
+            
+            elif self.player_two.chosen_gesture == 'lizard':
+                print('Its a tie') 
+
+            elif self.player_two.chosen_gesture == 'scissors':
+                self.player_two.player_score += 1
+                print(f'scissors decapitates lizard {self.player_two.name} wins')
+
+            elif self.player_two.chosen_gesture == 'paper':
+                self.player_one.player_score += 1
+                print(f'lizard eats paper {self.player_one.name} wins')
+            
+            elif self.player_two.chosen_gesture == 'spock':
+                self.player_one.player_score += 1
+                print(f'lizard poisons spock {self.player_one.name} wins')
+        
+        # 5th line
+        if self.player_one.chosen_gesture == 'spock':
+            if self.player_two.chosen_gesture == 'rock':
+                self.player_one.player_score += 1
+                print(f'spock vaporizes rock {self.player_one.name} wins')
+            
+            elif self.player_two.chosen_gesture == 'spock':
+                print('Its a tie') 
+
+            elif self.player_two.chosen_gesture == 'paper':
+                self.player_two.player_score += 1
+                print(f'paper disproves spock {self.player_two.name} wins')
+
+            elif self.player_two.chosen_gesture == 'scissors':
+                self.player_one.player_score += 1
+                print(f'spock smashes scissors {self.player_one.name} wins')
+            
+            elif self.player_two.chosen_gesture == 'lizard':
+                self.player_two.player_score += 1
+                print(f'lizard poisons spock {self.player_two.name} wins')
+        
+        
+
+        
+
+
+
+
+
 
             
 
