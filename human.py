@@ -1,4 +1,4 @@
-import re
+
 from player import Player
 
 class Human(Player):
@@ -6,6 +6,7 @@ class Human(Player):
         super().__init__(name)
 
     def choose_gesture(self):
+        self.player_one = user_input
         self.chosen_gesture = self.gesture[0:4]
         user_input = (input('Pick a gesture '))
         if user_input == self.gesture[0]:
