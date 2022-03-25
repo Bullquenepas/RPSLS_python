@@ -35,7 +35,7 @@ class Game():
             self.player_one.choose_gesture()
             self.player_two.choose_gesture()
             self.compare_gestures()
-            
+            self.display_winner()
 
     def display_winner(self):
         if (self.player_one.player_score == 2):

@@ -10,6 +10,7 @@ class Human(Player):
         
         self.chosen_gesture = self.gesture[0:4]
         user_input = (input('Pick a gesture '))
+        user_input = user_input.lower()
         if user_input == self.gesture[0]:
             print('You chose rock!')
             self.chosen_gesture = self.gesture[0]
