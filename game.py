@@ -10,8 +10,8 @@ class Game():
 
     def welcome(self):
         print('Welcome to a wonderful game of chance!')
-        print('Each player picks a variable and reveals it at the same time. The winner is the one who defeats the others. In a tie, the process is repeated until a winner is found.')
-        print('You can choose between Rock Paper Scissors Lizard Spock')
+        print('Each player picks a gesture and reveals it at the same time. The winner is the one who gets 2 wins. In a tie, the process is repeated until a winner is found.')
+        print('You can choose between Rock, Paper, Scissors, Lizard or Spock')
         print('Rock crushes Scissors')
         print('Scissors cuts Paper')
         print('Paper covers Rock')
@@ -31,10 +31,18 @@ class Game():
     def run_game(self):
         self.welcome()
         self.game_select()
-        self.player_one.choose_gesture()
-        self.player_two.choose_gesture()
-        self.compare_gestures()
+        while (self.player_one.player_score < 2 and self.player_two.player_score <2):
+            self.player_one.choose_gesture()
+            self.player_two.choose_gesture()
+            self.compare_gestures()
+            
 
+    def display_winner(self):
+        if (self.player_one.player_score == 2):
+            print(f'{self.player_one.name} wins the game!')
+
+        elif (self.player_two.player_score == 2):
+            print(f'{self.player_two.name} wins the game!')
     def compare_gestures(self):
         
         if self.player_one.chosen_gesture == 'rock':
